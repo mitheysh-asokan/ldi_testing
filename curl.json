@@ -10,13 +10,13 @@ curl -X POST "https://api.datadoghq.com/api/v2/series" \
       "type": 1,
       "points": [
         {
-          "timestamp": 1654100100,
+          "timestamp": 1654056060,
           "value": 10
         },
         {
-          "timestamp": 1654100400,
+          "timestamp": 1654056360,
           "value": 10
-        },
+        }
       ],
       "tags": ["is_test:true"]
     }
