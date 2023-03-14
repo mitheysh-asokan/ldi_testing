@@ -6,7 +6,7 @@ curl -X POST "https://api.datadoghq.com/api/v2/series" \
 {
   "series": [
     {
-      "metric": "mitheysh.testing",
+      "metric": "testing.late.metric.<your name>",
       "type": 1,
       "points": [
         {
@@ -17,15 +17,8 @@ curl -X POST "https://api.datadoghq.com/api/v2/series" \
           "timestamp": 1654100400,
           "value": 10
         },
-        {
-          "timestamp": 1654100700,
-          "value": 10
-        },{
-          "timestamp": 1654101000,
-          "value": 10
-        }
       ],
-      "tags": ["is_test:false"]
+      "tags": ["is_test:true"]
     }
   ]
 }
