@@ -1,3 +1,5 @@
+#This script will allow you send metrics to Datadog
+
 import requests
 import time
 
@@ -8,27 +10,32 @@ url = "https://api.datadoghq.com/api/v2/series"
 headers = {
     "Accept": "application/json",
     "Content-Type": "application/json",
-    "DD-API-KEY": "<Add API here>" 
+    "DD-API-KEY": "<Add API here>" #You will need to add your own
 }
 
-counter =  100
-timenow = int(time.time())
+numOfPoints =  100 #How many points do you want to send
+timenow = int(time.time()) #Start time
+interval = 60 #Set interval
 
+#The while loop will keep send metrics into the past, with a specified interval (time)
 
-while(counter > 0):
+#Default workflow will start to send 100 points into the past, starting now. 
+#Each point sent will be seperated by a 60sec period from the previous
+
+while(numOfPoints > 0):
 
     #Define the data to be sent
     data = {"series":[
     {
-    "metric": "mitheysh.ldi.testing.again",
+    "metric": "testing.late.metric.<your name>", #set your own metric name
     "type": 1,
     "points":[
         {
             "timestamp": timenow,
-            "value": 10
+            "value": 10 #set your own metric value
         }
     ],
-    "tags": ["is_joke:definitely"]
+    "tags": ["is_bug_bashing:definitely"]
     }]}
 
      # Send the POST request with headers and receive the response
@@ -36,5 +43,5 @@ while(counter > 0):
     print(response.status_code)
     print(response.content) 
 
-    counter -= 1
-    timenow -= 60  
+    numOfPoints -= 1
+    timenow -= interval  
