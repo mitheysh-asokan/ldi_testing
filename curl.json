@@ -1,0 +1,32 @@
+curl -X POST "https://api.datadoghq.com/api/v2/series" \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "DD-API-KEY: ${DD_API_KEY}" \
+-d @- << EOF
+{
+  "series": [
+    {
+      "metric": "mitheysh.testing",
+      "type": 1,
+      "points": [
+        {
+          "timestamp": 1654100100,
+          "value": 10
+        },
+        {
+          "timestamp": 1654100400,
+          "value": 10
+        },
+        {
+          "timestamp": 1654100700,
+          "value": 10
+        },{
+          "timestamp": 1654101000,
+          "value": 10
+        }
+      ],
+      "tags": ["is_test:false"]
+    }
+  ]
+}
+EOF
