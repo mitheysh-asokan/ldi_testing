@@ -40,8 +40,8 @@ while(numOfPoints > 0):
 
      # Send the POST request with headers and receive the response
     response = requests.post(url, headers=headers, json=data)
-    print(response.status_code)
-    print(response.content) 
+    print(response.status_code + " - "  + response.content)
+    print() 
 
     numOfPoints -= 1
     startTime -= interval  
