@@ -14,8 +14,8 @@ headers = {
 }
 
 numOfPoints =  100 #How many points do you want to send
-timenow = int(time.time()) #Start time
-interval = 60 #Set interval
+startTime = int(time.time()) #Start time
+interval = 60 #Set interval in seconds
 
 #The while loop will keep send metrics into the past, with a specified interval (time)
 
@@ -31,7 +31,7 @@ while(numOfPoints > 0):
     "type": 1,
     "points":[
         {
-            "timestamp": timenow,
+            "timestamp": startTime,
             "value": 10 #set your own metric value
         }
     ],
@@ -44,4 +44,4 @@ while(numOfPoints > 0):
     print(response.content) 
 
     numOfPoints -= 1
-    timenow -= interval  
+    startTime -= interval  
